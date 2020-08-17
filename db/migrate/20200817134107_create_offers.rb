@@ -7,7 +7,7 @@ class CreateOffers < ActiveRecord::Migration[6.0]
       t.date :end_date
       t.integer :cost
       t.string :location
-      t.boolean :accepted
+      t.boolean :accepted, default: false
 
       t.timestamps
     end
