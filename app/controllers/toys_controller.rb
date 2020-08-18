@@ -1,46 +1,47 @@
 class ToysController < ApplicationController
   def index
-    @toys= Toy.all
+    @toys = Toy.all
   end
 
   def show
     @toy = Toy.find(params[:id])
   end
 
-   def new
+  def new
     @toy = Toy.new
-   end
+  end
 
-   def create
+  def create
     @toy = Toy.new(toy_params)
     if @toy.save
       redirect_to toy_path(@toy)
     else
       render 'new'
-   end
+    end
+  end
 
-   def edit
+  def edit
     @toy = Toy.find(params[:id])
-   end
+  end
 
-   def update
+  def update
     @toy = Toy.find(params[:id])
     @toy.update(toy_params)
     redirect_to toy_path(@toy)
-   end
+  end
 
-   def destroy
+  def destroy
     @toy = Toy.find(params[:id])
     @toy.destroy
     redirect_to toys_path
-   end
+  end
 
    private
 
   # def set_toy
   # end
 
-   def toy_params
+  def toy_params
     params.require(:toy).permit(:name, :description, :price, :category)
-   end
+  end
 end
