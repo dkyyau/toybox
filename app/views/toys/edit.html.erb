@@ -1,16 +1,14 @@
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-md-8">
-
       <h1>Edit your <%=@toy.name %></h1>
-
-<%= simple_form_for(@toy) do |f| %>
-  <%= f.input :name %>
-  <%= f.input :description %>
-  <%= f.input :price, as: :float %>
-  <%= f.association :category %>
-  <%= f.button :submit, class: 'btn btn-primary' %>
-<% end %>
-</div>
- </div>
+      <%= simple_form_for(@toy) do |f| %>
+      <%= f.input :name %>
+      <%= f.input :description %>
+      <%= f.input :price, as: :float %>
+      <%= f.association :category %>
+      <%= f.button :submit, class: 'btn btn-primary' %>
+      <% end %>
+    </div>
+  </div>
 </div>
