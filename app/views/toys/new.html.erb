@@ -7,7 +7,7 @@
 <%= simple_form_for(@toy) do |f| %>
   <%= f.input :name %>
   <%= f.input :description %>
-  <%= f.input :price %>
+  <%= f.input :price, label: 'Price per day' %>
   <%= f.association :category %>
   <%= f.button :submit, class: 'btn btn-primary' %>
 <% end %>
