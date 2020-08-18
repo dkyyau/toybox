@@ -5,6 +5,7 @@ class OffersController < ApplicationController
 
   def show
     @offer = Offer.find(params[:id])
+    @num_of_days = (@offer.end_date - @offer.start_date).to_i
   end
 
   def new
