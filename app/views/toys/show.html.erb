@@ -1,9 +1,21 @@
-<h1>Toy</h1>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
 
-<% @toy.name %>
-<%= @toy.description %>
+
+<h1>Your Toy</h1>
+
+<div class="d-flex flex-column bd-highlight mb-3">
+ <div class="p-2 bd-highlight"><%= @toy.name.capitalize %></div>
+<div class="p-2 bd-highlight"><%= @toy.description. capitalize %></div>
+ <div class="p-2 bd-highlight"><%= @toy.price %></div>
+ <div class="p-2 bd-highlight"><%= @toy.category.name %></div>
+</div>
 
 <div>
 <%= link_to "Edit your toy", edit_toy_path(@toy), class: 'btn btn-primary'  %>
 </div>
 
+</div>
+ </div>
+</div>
