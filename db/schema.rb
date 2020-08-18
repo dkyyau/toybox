@@ -10,17 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_17_140905) do
+ActiveRecord::Schema.define(version: 2020_08_17_163213) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "messages", force: :cascade do |t|
     t.text "content"
     t.bigint "offer_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id"
     t.index ["offer_id"], name: "index_messages_on_offer_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
   create_table "offers", force: :cascade do |t|
@@ -28,7 +36,6 @@ ActiveRecord::Schema.define(version: 2020_08_17_140905) do
     t.bigint "toy_id", null: false
     t.date "start_date"
     t.date "end_date"
-    t.integer "cost"
     t.string "location"
     t.boolean "accepted", default: false
     t.datetime "created_at", precision: 6, null: false
@@ -39,11 +46,13 @@ ActiveRecord::Schema.define(version: 2020_08_17_140905) do
 
   create_table "toys", force: :cascade do |t|
     t.string "name"
-    t.string "category"
     t.text "description"
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "category_id", null: false
+    t.integer "price"
+    t.index ["category_id"], name: "index_toys_on_category_id"
     t.index ["user_id"], name: "index_toys_on_user_id"
   end
 
@@ -55,7 +64,6 @@ ActiveRecord::Schema.define(version: 2020_08_17_140905) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "username"
     t.string "first_name"
     t.string "last_name"
     t.string "address"
@@ -66,5 +74,6 @@ ActiveRecord::Schema.define(version: 2020_08_17_140905) do
   add_foreign_key "messages", "offers"
   add_foreign_key "offers", "toys"
   add_foreign_key "offers", "users"
+  add_foreign_key "toys", "categories"
   add_foreign_key "toys", "users"
 end
