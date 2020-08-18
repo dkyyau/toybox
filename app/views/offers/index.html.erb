@@ -1,0 +1,12 @@
+<div class="banner">
+<h1>Offers</h1>
+</div>
+<ul>
+  <% @offers.each do |offer| %>
+  <li><%= link_to toy.name, toy_offers_path(toy) %></li>
+  <%= link_to 'Edit Offer', edit_toy_offer_path(toy) %>
+  <%= link_to 'Delete Offer', toy_offer_path(toy), method: :delete, data: { confirm: "Are you sure you would like to DELETE " + toy.name } %>
+  <% end %>
+</ul>
+
+<%= link_to 'Add a new offer', new_toy_offer_path  %>
