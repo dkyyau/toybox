@@ -1,19 +1,23 @@
 <div class="container">
   <h1>Available Toys</h1>
-  <div class="d-flex  flex-wrap justify-content-around">
+  <div class="d-flex flex-wrap justify-content-around">
     <% @toys.each do |toy| %>
-    <div class="card-trip m-3">
-      <img src="https://images.unsplash.com/photo-1558877385-81a1c7e67d72?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80" />
-      <div class="card-trip-infos">
-        <div>
-          <h2> <%= toy.name %></h2>
-          <p><%= toy.description %></p>
-          <p class="Catagory"><%= toy.category.name %></p>
+      <%= link_to toy_path(toy) do %>
+        <div class="card-trip m-3">
+          <img src="https://images.unsplash.com/photo-1558877385-81a1c7e67d72?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80" />
+          <div class="card-trip-infos">
+            <div>
+              <h2> <%= toy.name %></h2>
+              <p><%= toy.description %></p>
+              <p class="category"><%= toy.category.name %></p>
+            </div>
+            <h2 class="card-trip-pricing">£<span><%= toy.price %> / day</span></h2>
+          </div>
         </div>
-        <h2 class="card-trip-pricing">£<span><%= toy.price %></span> <span></span></h2>
-      </div>
-    </div>
+      <% end %>
     <% end %>
   </div>
+  <div class="text-center">
+    <%= link_to "List your toy", new_toy_path, class: "btn btn-toyorange" %>
+  </div>
 </div>
-

@@ -1,14 +1,17 @@
-<div class=“container”>
-  <div class=“row justify-content-center”>
-    <div class=“col-md-8”>
+<div class="container text-center">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
 
-      <h1>Create a new Offer for <%= @toy.name %></h1>
-
+      <h1>Request <%= @toy.name %></h1>
       <%= simple_form_for([@toy, @offer]) do |f| %>
-        <%= f.input :start_date %>
-        <%= f.input :end_date %>
-        <%= f.input :location %>
-        <%= f.button :submit, class: 'btn btn-primary'%>
+        <div class="form-inputs text-left">
+          <%= f.input :start_date %>
+          <%= f.input :end_date %>
+          <%= f.input :location %>
+        </div>
+        <div class="form-actions">
+          <%= f.button :submit, class: 'btn btn-toyorange'%>
+        </div>
       <% end %>
     </div>
   </div>

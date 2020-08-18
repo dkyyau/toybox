@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Toybox</title>
+    <title>Toy Box</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -14,10 +14,10 @@
   <body>
     <div class="page-container">
       <%= render 'shared/navbar' %>
-    <div class="main-content">
-       <%= yield %>
-    </div>
-     <%= render 'shared/footer' %>
+      <div class="main-content">
+        <%= yield %>
+      </div>
+      <%= render 'shared/footer' %>
     </div>
   </body>
 </html>

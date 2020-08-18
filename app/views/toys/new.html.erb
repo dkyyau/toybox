@@ -1,16 +1,15 @@
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-md-8">
-
-      <h1>Create a new toy</h1>
-
-<%= simple_form_for(@toy) do |f| %>
-  <%= f.input :name %>
-  <%= f.input :description %>
-  <%= f.input :price, label: 'Price per day' %>
-  <%= f.association :category %>
-  <%= f.button :submit, class: 'btn btn-primary' %>
-<% end %>
-</div>
- </div>
+      <h1>List your toy</h1>
+      <%= simple_form_for(@toy) do |f| %>
+        <%= f.input :name %>
+        <%= f.input :description %>
+        <%= f.input :price, label: 'Price per day', input_html: { min: "0", step: 0.1 } %>
+        <%= f.association :category %>
+        <%= f.button :submit, class: 'btn btn-toyorange' %>
+        <%= link_to "Cancel", toys_path, class: "btn btn-outline-secondary" %>
+      <% end %>
+    </div>
+  </div>
 </div>

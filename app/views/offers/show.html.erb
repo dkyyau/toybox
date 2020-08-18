@@ -1,25 +1,18 @@
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-md-8">
-
-
-<h1>Your Offer confirmation</h1>
-
-<div class="d-flex flex-column bd-highlight mb-3">
- <div class="p-2 bd-highlight"> Start date: <%= @offer.start_date %></div>
-<div class="p-2 bd-highlight"> End date: <%= @offer.end_date %></div>
- <div class="p-2 bd-highlight">Location: <%= @offer.location %></div>
- <div class="p-2 bd-highlight"> <%= @num_of_days %> days </div>
-  <div class="p-2 bd-highlight"> Total price £<%= @num_of_days * @offer.toy.price %> </div>
-   <div class="p-2 bd-highlight"> status: <% if @offer.accepted %>
-  <%= "offer accepted"%>
-  <% else  %>
-  <%= "offer pending" %>
-  <% end %>
+      <h1>Your request</h1>
+      <div class="d-flex flex-column bd-highlight mb-3">
+        <p> Start date: <%= @offer.start_date %></p>
+        <p> End date: <%= @offer.end_date %></p>
+        <p>Location: <%= @offer.location %></p>
+        <p> <%= @num_of_days %> days </p>
+        <p> Status: <%= @offer.accepted ? "Request accepted" : "Request pending" %></p>
+        <p> Total price £<%= @num_of_days * @offer.toy.price %></p>
+      </div>
+    </div>
+    </div>
+  <div class="text-center">
+    <%= link_to "Back to toys", toys_path, class: "btn btn-toyorange" %>
   </div>
-</div>
-
-
-</div>
- </div>
 </div>
