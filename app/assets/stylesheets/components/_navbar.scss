@@ -1,6 +1,9 @@
+
+
 .navbar-lewagon {
   justify-content: space-between;
-  background: white;
+  color: black;
+  margin-bottom: 5px;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -9,4 +12,26 @@
 
 .navbar-lewagon .navbar-brand img {
   width: 40px;
+}
+
+.flex-logo{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-logo h3{
+    margin-bottom: 0;
+  }
+
+.logo{
+  margin-right: 5px;
+}
+
+#nav-link{
+  color: black;
+}
+
+.btn-toyorange{
+  background-color: $toyoragne;
 }
