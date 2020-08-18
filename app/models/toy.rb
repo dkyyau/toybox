@@ -1,6 +1,7 @@
 class Toy < ApplicationRecord
   belongs_to :user
   belongs_to :category
+  has_many :offers
 
   validates :name, presence: true
   validates :description, presence: true
