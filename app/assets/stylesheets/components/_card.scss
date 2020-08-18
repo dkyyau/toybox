@@ -2,8 +2,8 @@
   overflow: hidden;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  min-width: 200px;
-  max-width: 300px;
+  min-width: 220px;
+  max-width: 320px;
   border-radius: 5px;
 }
 
@@ -35,13 +35,22 @@ cursor: pointer;
   padding: 16px;
   display: flex;
   justify-content: space-between;
-  align-items: flex-end;
+  align-items: center;
   position: relative;
 }
 
-.card-trip-infos .card-trip-user {
+
+
+.card-trip-pricing{
   position: absolute;
-  right: 16px;
-  top: -20px;
-  width: 40px;
+  top:-180px;
+  right:15px;
+  background-color: #fff;
+  border-radius: 20px;
+  padding: 4px 12px;
+  display: inline-block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }

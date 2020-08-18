@@ -1,27 +1,19 @@
-
-
 <div class="container">
-
   <h1>Available Toys</h1>
-
   <div class="d-flex  flex-wrap justify-content-around">
-
-  <% %>
-
-  <div class="card-trip m-3">
-  <img src="https://images.unsplash.com/photo-1558877385-81a1c7e67d72?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80" />
-  <div class="card-trip-infos">
-    <div>
-      <h2>Title here</h2>
-      <p>Short description here!</p>
-      <p class="Catagory">Catagory</p>
+    <% @toys.each do |toy| %>
+    <div class="card-trip m-3">
+      <img src="https://images.unsplash.com/photo-1558877385-81a1c7e67d72?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80" />
+      <div class="card-trip-infos">
+        <div>
+          <h2> <%= toy.name %></h2>
+          <p><%= toy.description %></p>
+          <p class="Catagory"><%= toy.category.name %></p>
+        </div>
+        <h2 class="card-trip-pricing">£<span><%= toy.price %></span> <span></span></h2>
+      </div>
     </div>
-    <h2 class="card-trip-pricing">£99.99 <span>PD</span></h2>
-  </div>
-</div>
-
-<% %>
-
+    <% end %>
   </div>
 </div>
 
