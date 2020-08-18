@@ -4,6 +4,9 @@
       <h1><%= @toy.name %></h1>
 
       <div class="d-flex flex-column bd-highlight mb-3">
+      <% if @toy.photo.attached? %>
+        <%= cl_image_tag @toy.photo.key, height: 300, width: 400, crop: :fill %>
+      <% end %>
       <p>Name: <%= @toy.name.capitalize %></p>
       <p>Description: <%= @toy.description. capitalize %></p>
       <p>Price per day: <%= @toy.price %></p>
