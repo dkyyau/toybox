@@ -6,6 +6,7 @@
         <%= f.input :name %>
         <%= f.input :description %>
         <%= f.input :price, label: 'Price per day', input_html: { min: "0", step: 0.1 } %>
+        <%= f.input :location %>
         <%= f.association :category %>
         <%= f.input :photo, as: :file %>
         <%= f.button :submit, class: 'btn btn-toyorange' %>
