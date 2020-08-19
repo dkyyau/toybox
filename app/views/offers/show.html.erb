@@ -5,7 +5,7 @@
       <div class="d-flex flex-column bd-highlight mb-3">
         <p> Start date: <%= @offer.start_date %></p>
         <p> End date: <%= @offer.end_date %></p>
-        <p>Location: <%= @offer.location %></p>
+        <p>Location: <%= @offer.toy.location %></p>
         <p> <%= @num_of_days %> days </p>
         <p> Status: <%= @offer.accepted ? "Request accepted" : "Request pending" %></p>
         <p> Total price £<%= @num_of_days * @offer.toy.price %></p>
