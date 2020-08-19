@@ -1,1 +1,35 @@
-<h1><%= (current_user.first_name) =%> <%= current_user.last_name =%> </h1>
+<div class="container profile-container">
+
+  <div class="profile-page">
+    <div class="profile-info">
+      <h2><%= (current_user.first_name).capitalize =%> <%= (current_user.last_name).capitalize =%> </h2>
+      <p><%= current_user.email %></p>
+      <p>Adress: <%= current_user.address %></p>
+      <%=link_to 'Edit Info', '/users/edit', class: 'btn btn-primary' %>
+    </div>
+
+    <div class="profile-listings">
+      <h2>Active Listings</h2>
+      <% @my_toys.each do |toy| %>
+
+      <div class="listing">
+        <% %>
+        <h5><%= toy.name %></h5>
+        <div class="toy-info">
+          <p>Posted: <%= toy.created_at.strftime("%F") %></p>
+        <%=link_to 'More', toy_path(toy), class: 'more-info' %>
+        </div>
+
+      </div>
+      <% end %>
+    </div>
+
+  </div>
+</div>
+
+
+
+
+
+
+

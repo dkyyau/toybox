@@ -1,0 +1,30 @@
+.profile-page{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+
+.profile-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 70%;
+}
+
+
+.listing{
+  padding: 4px;
+  margin: 2px;
+}
+
+.toy-info{
+  display: flex;
+}
+
+.more-info{
+  margin-left: 8px;
+  color: #0E6CE7;
+
+  cursor: pointer;
+}
