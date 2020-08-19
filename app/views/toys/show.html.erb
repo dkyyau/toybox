@@ -4,12 +4,14 @@
       <h1><%= @toy.name %></h1>
 
       <div class="d-flex flex-column bd-highlight mb-3">
-        <% if @toy.photo.attached? %>
-          <%= cl_image_tag @toy.photo.key, height: 300, width: 400, crop: :fill %>
-        <% end %>
+        <div class="text-center">
+          <% if @toy.photo.attached? %>
+            <%= cl_image_tag @toy.photo.key, height: 300, width: 400, crop: :fill %>
+          <% end %>
+        </div>
         <p>Name: <%= @toy.name.capitalize %></p>
         <p>Description: <%= @toy.description.capitalize %></p>
-        <p>Price per day: <%= @toy.price %></p>
+        <p>Price per day: £<%= number_with_precision(@toy.price, precision: 2) %></p>
         <p>Location: <%= @toy.location %></p>
         <p>Category: <%= @toy.category.name %></p>
       </div>
@@ -18,9 +20,9 @@
         <% if @toy.user == current_user %>
           <%= link_to "Edit", edit_toy_path(@toy), class: 'btn btn-outline-warning' %>
         <% else %>
-          <%= link_to "Request this toy", new_toy_offer_path(@toy), class: 'btn btn-toyorange' %>
+          <%= link_to "Request this toy", new_toy_offer_path(@toy), class: 'btn btn-toyorange my-3 mr-3' %>
         <% end %>
-        <%= link_to "Back to toys", toys_path, class: 'btn btn-outline-secondary' %>
+        <%= link_to "Back to toys", toys_path, class: 'btn btn-outline-secondary my-3 mr-3' %>
       </div>
     </div>
   </div>
