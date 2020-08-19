@@ -1,4 +1,6 @@
 class OffersController < ApplicationController
+  before_action :set_offer, only: [ :update ]
+
   def index
     @offers = Offer.all
   end
@@ -13,11 +15,6 @@ class OffersController < ApplicationController
     @offer = Offer.new
   end
 
-  def update
-    @offer.update(offer_params)
-    redirect_to offer_path(@offer)
-  end
-
   def create
     @offer = Offer.new(offer_params)
     @toy = Toy.find(params[:toy_id])
@@ -29,14 +26,36 @@ class OffersController < ApplicationController
       render 'new'
     end
   end
-
+  
   def edit
     @offer = Offer.find(params[:id])
   end
 
+  def update
+    if params[:accepted]
+      @offer.accepted = true
+      @offer.save
+      redirect_to bookings_path
+    else
+      @offer.update(offer_params)
+      redirect_to offer_path(@offer)
+    end
+  end
+
+  def destroy
+    @offer = Offer.find(params[:id])
+    @offer.destroy
+    redirect_to bookings_path
+  end
+
   private
+
+  def set_offer
+    @offer = Offer.find(params[:id])
+  end
 
   def offer_params
     params.require(:offer).permit(:start_date, :end_date, :location, :toy_id)
   end
+
 end

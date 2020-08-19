@@ -1,0 +1,52 @@
+<div class="container">
+  <h1>Bookings</h1>
+
+  <table>
+    <tr>
+      <th>Toy</th>
+      <th>Start date</th>
+      <th>End date</th>
+      <th>Price</th>
+      <th>Location</th>
+      <th>Status</th>
+    </tr>
+    <% @my_offers.each do |offer| %>
+      <tr>
+        <td><%= offer.toy.name %></td>
+        <td><%= offer.start_date %></td>
+        <td><%= offer.end_date %></td>
+        <td><%= (offer.end_date - offer.start_date).to_i * offer.toy.price %></td>
+        <td><%= offer.location %></td>
+        <td><%= offer.accepted ? "Accepted" : "Pending" %></td>
+        <td><%= link_to "Cancel", offer_path(offer), method: :delete, data: { confirm: "Cancel this request?" }, class: "btn btn-danger" %></td>
+      </tr>
+    <% end %>
+
+  </table>
+
+  <h2>Requests for your toys</h2>
+  <table>
+    <tr>
+      <th>Toy</th>
+      <th>User</th>
+      <th>Start date</th>
+      <th>End date</th>
+      <th>Price</th>
+      <th>Location</th>
+      <th>Status</th>
+    </tr>
+    <% @toy_requests.each do |offer| %>
+      <tr>
+          <td><%= offer.toy.name %></td>
+          <td><%= offer.user.first_name %> <%= offer.user.last_name %></td>
+          <td><%= offer.start_date %></td>
+          <td><%= offer.end_date %></td>
+          <td><%= (offer.end_date - offer.start_date).to_i * offer.toy.price %></td>
+          <td><%= offer.location %></td>
+          <td><%= offer.accepted ? "Accepted" : "Pending" %></td>
+          <td><%= link_to "Accept", toy_offer_path(offer.toy, offer, accepted: true), method: :put, class: "btn btn-toyorange" %></td>
+          <td><%= link_to "Cancel", offer_path(offer), method: :delete, data: { confirm: "Cancel this request?" }, class: "btn btn-danger" %></td>
+      </tr>
+    <% end %>
+  </table>
+</div>
