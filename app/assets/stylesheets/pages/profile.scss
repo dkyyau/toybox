@@ -1,30 +1,65 @@
 .profile-page{
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-}
-
-
-.profile-container{
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
+  width: 100%;
   height: 100%;
 }
 
+.profile-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 18px;
+}
+
+
+.profile-info{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  background-color: #ACE2E5;
+  padding: 28px;
+  height: 250px;
+  box-shadow: 10px 10px 8px #888888;
+}
 
 .listing{
   padding: 4px;
   margin: 2px;
+  display: flex;
+
+}
+
+.listing p{
+  margin-left: 8px;
 }
 
 .toy-info{
   display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+
+.listing-img img{
+  width: 90px;
+  margin-right: 8px;
+  border-radius: 4px;
 }
 
 .more-info{
   margin-left: 8px;
-  color: #0E6CE7;
-
-  cursor: pointer;
+  color: #EA7878;
 }
+
+.listing-img{
+  display: flex;
+}
+
+@media(max-width: 500px){
+  .profile-page{
+    flex-direction: column;
+  }
+}
+
