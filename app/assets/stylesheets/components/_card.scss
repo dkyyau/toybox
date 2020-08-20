@@ -1,53 +1,105 @@
-.card-trip {
+.card-toy-map {
   overflow: hidden;
   background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
   min-width: 220px;
   max-width: 320px;
   border-radius: 5px;
 }
 
-.card-trip:hover{
+.card-toy-map:hover{
 opacity: 0.9;
 cursor: pointer;
 }
 
-.card-trip > img {
-  height: 200px;
+.card-toy-map > img {
+  height: 150px;
   width: 100%;
   object-fit: cover;
 }
 
-.card-trip h2 {
+.card-toy-map h2 {
   font-size: 16px;
   font-weight: bold;
   margin: 0;
 }
 
-.card-trip p {
-  font-size: 12px;
-  opacity: .7;
+.card-toy-map p {
+  font-size: 14px;
+  opacity: 1;
   margin: 0;
 }
 
-.card-trip .card-trip-infos {
+.card-toy-map .card-toy-info {
   padding: 16px;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
   position: relative;
 }
 
-.card-trip-pricing{
+.card-toy-pricing {
   position: absolute;
-  top:-180px;
-  right:15px;
-  background-color: #fff;
+  top: -36px;
+  right: 15px;
+  background-color: #EA7878;
   border-radius: 20px;
-  padding: 4px 12px;
   display: inline-block;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   text-align: center;
+  padding: 4px 8px;
+}
+
+.card-category {
+  position: absolute;
+  top: -140px;
+  left: 15px;
+  background-color: $toyorange;
+  border-radius: 20px;
+  padding: 2px 8px;
+  display: inline-block;
+}
+
+.card-toy {
+  overflow: hidden;
+  height: 120px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+  border-radius: 4px;
+  position: relative;
+}
+
+.card-toy img {
+  height: 100%;
+  width: 120px;
+  object-fit: cover;
+}
+
+.card-toy h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-toy p {
+  font-size: 14px;
+  line-height: 1.4;
+  opacity: 1;
+  margin-bottom: 0;
+  margin-top: 8px;
+}
+
+.card-toy .card-toy-info {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-toy-category {
+  position: absolute;
+  top: 0px;
+  right: 15px;
+  background-color: $toyorange;
+  border-radius: 20px;
+  padding: 2px 8px;
+  display: inline-block;
 }
