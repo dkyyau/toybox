@@ -1,5 +1,6 @@
 <div class="container">
   <h1>Available Toys</h1>
+  <%= render 'shared/search' %>
   <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
     <% @toys.each do |toy| %>
       <div class="col p-3">

@@ -2,7 +2,17 @@ class ToysController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :index, :show ]
 
   def index
-    @toys = Toy.all
+    # search for toys
+     if params[:query].present?
+      sql_query = " \
+        toys.name ILIKE :query \
+        OR toys.description ILIKE :query \
+        OR categories.name ILIKE :query\
+      "
+      @toys = Toy.joins(:category).where(sql_query, query: "%#{params[:query]}%")
+    else
+      @toys = Toy.all
+    end
   end
 
   def show
