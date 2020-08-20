@@ -10,10 +10,10 @@ class OffersController < ApplicationController
     @num_of_days = (@offer.end_date - @offer.start_date).to_i
   end
 
-  def new
-    @toy = Toy.find(params[:toy_id])
-    @offer = Offer.new
-  end
+  # def new
+  #   @toy = Toy.find(params[:toy_id])
+  #   @offer = Offer.new
+  # end
 
   def create
     @offer = Offer.new(offer_params)

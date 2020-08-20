@@ -27,6 +27,7 @@ class ToysController < ApplicationController
 
   def show
     @toy = Toy.find(params[:id])
+    @offer = Offer.new
   end
 
   def new
