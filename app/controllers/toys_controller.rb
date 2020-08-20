@@ -2,6 +2,15 @@ class ToysController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :index, :show ]
 
   def index
+    @toys = Toy.geocoded
+
+    @markers = @toys.map do |toy|
+      {
+        lat: toy.latitude,
+        lng: toy.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { toy: toy })
+      }
+
     # search for toys
      if params[:query].present?
       sql_query = " \
