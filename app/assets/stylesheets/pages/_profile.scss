@@ -1,20 +1,19 @@
-.profile-page{
+.profile-page {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   width: 100%;
   height: 100%;
 }
 
-.profile-container{
+.profile-container {
   display: flex;
   justify-content: center;
   align-items: center;
   margin-top: 18px;
 }
 
-
-.profile-info{
+.profile-info {
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -24,40 +23,39 @@
   box-shadow: 10px 10px 8px #888888;
 }
 
-.listing{
+.listing {
   padding: 4px;
   margin: 2px;
   display: flex;
-
 }
 
-.listing p{
+.listing p {
   margin-left: 8px;
 }
 
-.toy-info{
+.toy-info {
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
-
-.listing-img img{
-  width: 90px;
+.listing-img img {
+  width: 60px;
+  height: 60px;
   margin-right: 8px;
   border-radius: 4px;
 }
 
-.more-info{
+.more-info {
   margin-left: 8px;
   color: #EA7878;
 }
 
-.listing-img{
+.listing-img {
   display: flex;
 }
 
-@media(max-width: 500px){
+@media(max-width: 500px) {
   .profile-page{
     flex-direction: column;
   }
