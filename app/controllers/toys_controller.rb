@@ -10,15 +10,16 @@ class ToysController < ApplicationController
         lng: toy.longitude,
         infoWindow: render_to_string(partial: "info_window", locals: { toy: toy })
       }
+    end
 
     # search for toys
-     if params[:query].present?
-      sql_query = " \
-        toys.name ILIKE :query \
-        OR toys.description ILIKE :query \
-        OR categories.name ILIKE :query\
-      "
-      @toys = Toy.joins(:category).where(sql_query, query: "%#{params[:query]}%")
+    if params[:query].present?
+    sql_query = " \
+      toys.name ILIKE :query \
+      OR toys.description ILIKE :query \
+      OR categories.name ILIKE :query\
+    "
+    @toys = Toy.joins(:category).where(sql_query, query: "%#{params[:query]}%")
     else
       @toys = Toy.all
     end
