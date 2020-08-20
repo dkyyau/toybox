@@ -9,8 +9,9 @@ class ToysController < ApplicationController
     @markers = @toys.map do |toy|
       {
         lat: toy.latitude,
-        lng: toy.longitude
-      }
+        lng: toy.longitude,
+       infoWindow: render_to_string(partial: "info_window", locals: { toy: toy })
+     }
     end
   end
 
