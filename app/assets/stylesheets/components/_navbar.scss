@@ -6,6 +6,11 @@
   margin-bottom: 5px;
 }
 
+.navbar-lewagon {
+  background-color: $light-toyorange;
+  margin: 0;
+}
+
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
 }
@@ -21,11 +26,12 @@
 }
 
 .flex-logo h3 {
+    font-weight: bolder;
     margin-bottom: 0;
   }
 
 .logo {
-  margin-right: 5px;
+  margin: 0;
 }
 
 #nav-link {
