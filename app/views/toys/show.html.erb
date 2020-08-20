@@ -1,29 +1,42 @@
 <div class="container">
   <div class="row justify-content-center">
-    <div class="col-md-8">
+    <div class="col-6">
       <h1><%= @toy.name %></h1>
-
-      <div class="d-flex flex-column bd-highlight mb-3">
-        <div class="text-center">
+      <div class="d-flex">
+        <div class="toy-img">
+          <div class="toy-category">
+            <%= @toy.category.name %>
+          </div>
           <% if @toy.photo.attached? %>
-            <%= cl_image_tag @toy.photo.key, height: 300, width: 400, crop: :fill %>
+            <%= cl_image_tag @toy.photo.key, height: 200, width: 200, crop: :fill, class: "img-thumbnail" %>
+          <% else %>
+            <img src="https://images.unsplash.com/photo-1558877385-81a1c7e67d72?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80" class="img-thumbnail" style="width: 200px; height: 200px; object-fit: cover;">
           <% end %>
+          
         </div>
-        <p>Name: <%= @toy.name %></p>
-        <p>Description: <%= @toy.description %></p>
-        <p>Price per day: £<%= number_with_precision(@toy.price, precision: 2) %></p>
-        <p>Location: <%= @toy.location %></p>
-        <p>Category: <%= @toy.category.name %></p>
+        <div class="toy-info">
+          <h6>Name: <%= @toy.name %></h6>
+          <p>Description:</p>
+          <p> <%= @toy.description %></p>
+          <p>Price per day: £<%= number_with_precision(@toy.price, precision: 2) %></p>
+          <p>Pick-up location: <%= @toy.location %></p>
+        </div>
       </div>
 
       <div>
         <% if @toy.user == current_user %>
           <%= link_to "Edit", edit_toy_path(@toy), class: 'btn btn-outline-warning' %>
-        <% else %>
-          <%= link_to "Request this toy", new_toy_offer_path(@toy), class: 'btn btn-toyorange my-3 mr-3' %>
         <% end %>
         <%= link_to "Back to toys", toys_path, class: 'btn btn-outline-secondary my-3 mr-3' %>
       </div>
+    </div>
+
+    <div class="col-4">
+      <% if @toy.user == current_user %>
+        <h1>No booking form</h1>
+      <% else %>
+        <%= render "offer_form", toy: @toy %>
+      <% end %>
     </div>
   </div>
 </div>

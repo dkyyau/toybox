@@ -5,8 +5,8 @@
       <h1>Request <%= @toy.name %></h1>
       <%= simple_form_for([@toy, @offer]) do |f| %>
         <div class="form-inputs text-left">
-          <%= f.input :start_date %>
-          <%= f.input :end_date %>
+          <%= f.input :start_date, as: :date, html5: true %>
+          <%= f.input :end_date, as: :date, html5: true %>
         </div>
         <div class="form-actions">
           <%= f.button :submit, class: 'btn btn-toyorange'%>
