@@ -3,7 +3,7 @@
   <%= render 'shared/search' %>
   <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
     <% @toys.each do |toy| %>
-      <div class="col p-3">
+      <div class="col p-3 d-flex justify-content-center">
         <%= link_to toy_path(toy) do %>
           <div class="card-trip m-3">
             <% if toy.photo.attached? %>
