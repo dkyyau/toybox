@@ -2,7 +2,16 @@ class ToysController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :index, :show ]
 
   def index
-    @toys = Toy.all
+    #@toys = Toy.all
+
+    @toys = Toy.geocoded
+
+    @markers = @toys.map do |toy|
+      {
+        lat: toy.latitude,
+        lng: toy.longitude
+      }
+    end
   end
 
   def show
