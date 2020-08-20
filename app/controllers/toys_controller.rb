@@ -2,16 +2,25 @@ class ToysController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :index, :show ]
 
   def index
-    #@toys = Toy.all
-
     @toys = Toy.geocoded
 
     @markers = @toys.map do |toy|
       {
         lat: toy.latitude,
         lng: toy.longitude,
-       infoWindow: render_to_string(partial: "info_window", locals: { toy: toy })
-     }
+        infoWindow: render_to_string(partial: "info_window", locals: { toy: toy })
+      }
+
+    # search for toys
+     if params[:query].present?
+      sql_query = " \
+        toys.name ILIKE :query \
+        OR toys.description ILIKE :query \
+        OR categories.name ILIKE :query\
+      "
+      @toys = Toy.joins(:category).where(sql_query, query: "%#{params[:query]}%")
+    else
+      @toys = Toy.all
     end
   end
 
