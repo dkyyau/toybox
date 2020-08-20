@@ -4,7 +4,7 @@
     <div class="profile-info">
       <h2> <i class="far fa-user-circle"></i> <%= (current_user.first_name).capitalize =%> <%= (current_user.last_name).capitalize =%> </h2>
       <p><%= current_user.email %></p>
-      <p>Adress: <%= current_user.address %></p>
+      <p>Address: <%= current_user.address %></p>
       <%=link_to 'Edit Info', '/users/edit', class: 'btn btn-warning' %>
     </div>
 
@@ -15,7 +15,7 @@
       <div class="listing">
         <div class="listing-img">
           <% if toy.photo.attached? %>
-              <%= cl_image_tag toy.photo.key, height: 250, width: 150, crop: :fill %>
+              <%= cl_image_tag toy.photo.key, height: 60, width: 60, crop: :limit %>
             <% else %>
               <img src="https://images.unsplash.com/photo-1558877385-81a1c7e67d72?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80" />
             <% end %>
