@@ -17,10 +17,10 @@
   display: flex;
   justify-content: center;
   flex-direction: column;
-  background-color: #ACE2E5;
+  background-color: $toyblue;
   padding: 28px;
   height: 250px;
-  box-shadow: 10px 10px 8px #888888;
+  box-shadow: 5px 5px 4px #888888;
 }
 
 .listing {
@@ -48,7 +48,7 @@
 
 .more-info {
   margin-left: 8px;
-  color: #EA7878;
+  color: $toyred;
 }
 
 .listing-img {
