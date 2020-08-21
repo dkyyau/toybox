@@ -17,7 +17,7 @@
             <img src="https://images.unsplash.com/photo-1558877385-81a1c7e67d72?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80" />
           <% end %>
           <div class="card-toy-info">
-            <p style= "background-color: <%=toy.category.colour;%>" class="card-toy-category"><%= toy.category.name %></p>
+            <p style= "background-color: <%= toy.category.colour %>;" class="card-toy-category"><%= toy.category.name %></p>
             <h2><%= toy.name %></h2>
             <p><%= toy.description %></p>
             <h3 class="card-toy-price">£<%= number_with_precision(toy.price, precision: 2) %> / day</h3>
