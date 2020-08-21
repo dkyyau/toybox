@@ -4,8 +4,8 @@
       <h1><%= @toy.name %></h1>
       <div class="d-flex">
         <div class="toy-img">
-          <div class="toy-category">
-            <%= @toy.category.name %>
+          <div>
+            <p class="toy-category" style="background-color: <%= @toy.category.colour %>;"><%= @toy.category.name %></p>
           </div>
           <% if @toy.photo.attached? %>
             <%= cl_image_tag @toy.photo.key, height: 200, width: 200, crop: :fill, class: "img-thumbnail" %>
