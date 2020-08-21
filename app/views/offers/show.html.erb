@@ -2,27 +2,25 @@
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-md-8">
-      <h1 class="title">Confirmation of your request</h1>
-
-      <div class="offer-info">
-      <div class="d-flex flex-column bd-highlight mb-3">
-        <p> Start date: <%= @offer.start_date %></p>
-        <p> End date: <%= @offer.end_date %></p>
-        <p>Location: <%= @offer.toy.location %></p>
-        <p> <%= @num_of_days %> days </p>
-        <p> Status: <%= @offer.accepted ? "Request accepted" : "Request pending" %></p>
-        <p> Total price £<%= @num_of_days * @offer.toy.price %></p>
-          <%= link_to "Back to toys", toys_path, class: "btn btn-toyorange" %>
+      <h1 class="title">Request confirmation</h1>
+      <div class="offer-info border border-secondary shadow">
+        <div class="offer-text">
+          <p><strong>Start date:</strong> <%= @offer.start_date %></p>
+          <p><strong>End date:</strong> <%= @offer.end_date %></p>
+          <p><strong>Location:</strong> <%= @offer.toy.location %></p>
+          <p><strong>Number of days:</strong> <%= @num_of_days %> days </p>
+          <p><strong>Status:</strong> <%= @offer.accepted ? "Accepted" : "Pending" %></p>
+          <p><strong>Total price:</strong> £<%= number_with_precision((@num_of_days * @offer.toy.price), precision: 2) %></p>
+          <%= link_to "Back to toys", toys_path, class: "btn btn-outline-warning" %>
+        </div>
+        <div class="offer-image">
           <% if @offer.toy.photo.attached? %>
-            <%= cl_image_tag @offer.toy.photo.key, height: 200, width: 200, crop: :fill, class: "img-thumbnail" %>
-            <% else %>
-            <img src="https://source.unsplash.com/qBrF1yu5Wys/300x300/" class="img-thumbnail" style="width: 200px; height: 200px; object-fit: cover;">
-            <% end %>
+            <%= cl_image_tag @offer.toy.photo.key, height: 200, width: 200, crop: :fill, class: "shadow" %>
+          <% else %>
+            <img src="https://source.unsplash.com/qBrF1yu5Wys/300x300/" class="shadow" style="width: 200px; height: 200px; object-fit: cover;">
+          <% end %>
         </div>
       </div>
-      </div>
-    </div>
-
-    </div>
     </div>
   </div>
+</div>
