@@ -21,3 +21,18 @@ a {
   position: sticky;
   top: 0;
 }
+
+.card-toy:hover{
+  opacity: 0.8;
+}
+
+.btn:hover i {
+ animation: 1s swing;
+}
+
+
+@-webkit-keyframes swing {
+   60%{
+    transform: rotate(90deg);
+   }
+  }
