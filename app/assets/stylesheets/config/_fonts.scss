@@ -1,8 +1,9 @@
 // Import Google fonts
-@import url('https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Roboto&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Poppins:wght@400;700&display=swap');
 // Define fonts for body and headers
-$body-font: 'Roboto', 'sans-serif';
-$headers-font: "Bubblegum Sans", "cursive";
+$body-font: "Open Sans", "Sans-Serif";
+$headers-font: "Poppins", "San-Serif";
 
 // To use a font file (.woff) uncomment following lines
 // @font-face {
