@@ -23,7 +23,7 @@
         <td><%= offer.end_date %></td>
         <td>£<%= number_with_precision(((offer.end_date - offer.start_date).to_i * offer.toy.price), precision: 2) %></td>
         <td><%= offer.toy.location %></td>
-        <td><%= offer.accepted ? "Accepted" : "Pending" %></td>
+        <td class="Accepted"><%= offer.accepted ? "Accepted" : "Pending" %></td>
         <td><%= link_to "Edit", edit_toy_offer_path(offer, offer.toy), class: "btn btn-warning px-4" %></td>
         <td><%= link_to "Cancel", offer_path(offer), method: :delete, data: { confirm: "Cancel this request?" }, class: "btn btn-danger" %></td>
       </tr>
@@ -54,14 +54,23 @@
           <td><%= offer.end_date %></td>
           <td>£<%= number_with_precision(((offer.end_date - offer.start_date).to_i * offer.toy.price), precision: 2) %></td>
           <td><%= offer.toy.location %></td>
-          <td><%= offer.accepted ? "Accepted" : "Pending" %></td>
+          <td class="Accepted"><%= offer.accepted ? "Accepted" : "Pending" %></td>
           <% if offer.accepted == false %>
             <td><%= link_to "Accept", toy_offer_path(offer.toy, offer, accepted: true), method: :put, class: "btn btn-warning" %></td>
           <% else %>
-            <td><%= link_to "Accept", "#", class: "btn btn-warning disabled" %></td>
+            <td id="disabled"><%= link_to "Accept", "#", class: "btn btn-warning disabled acepted-btn" %></td>
           <% end %>
           <td><%= link_to "Cancel", offer_path(offer), method: :delete, data: { confirm: "Cancel this request?" }, class: "btn btn-danger" %></td>
       </tr>
     <% end %>
   </table>
 </div>
+
+<script>
+  var Accepted = document.querySelectorAll('.Accepted');
+  Accepted.forEach((e)=>{
+     if(e.textContent==="Accepted"){
+     e.style.color="green";
+    }
+  })
+</script>
