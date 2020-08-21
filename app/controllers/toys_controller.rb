@@ -14,12 +14,12 @@ class ToysController < ApplicationController
 
     # search for toys
     if params[:query].present?
-    sql_query = " \
-      toys.name ILIKE :query \
-      OR toys.description ILIKE :query \
-      OR categories.name ILIKE :query\
-    "
-    @toys = Toy.joins(:category).where(sql_query, query: "%#{params[:query]}%")
+      sql_query = " \
+        toys.name ILIKE :query \
+        OR toys.description ILIKE :query \
+        OR categories.name ILIKE :query\
+      "
+      @toys = Toy.joins(:category).where(sql_query, query: "%#{params[:query]}%")
     else
       @toys = Toy.all
     end

@@ -1,17 +1,20 @@
-<div class="container">
+<div class="container bookings">
   <h2>My requests</h2>
 
-  <table class="table">
-    <tr>
-      <th>Toy</th>
-      <th>User</th>
-      <th>Start date</th>
-      <th>End date</th>
-      <th>Price</th>
-      <th>Location</th>
-      <th>Status</th>
-      <th></th>
-    </tr>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Toy</th>
+        <th>User</th>
+        <th>Start date</th>
+        <th>End date</th>
+        <th>Price</th>
+        <th>Location</th>
+        <th>Status</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
     <% @my_offers.each do |offer| %>
       <tr>
         <td><%= offer.toy.name %></td>
@@ -21,6 +24,7 @@
         <td>£<%= number_with_precision(((offer.end_date - offer.start_date).to_i * offer.toy.price), precision: 2) %></td>
         <td><%= offer.toy.location %></td>
         <td><%= offer.accepted ? "Accepted" : "Pending" %></td>
+        <td><%= link_to "Edit", "#", class: "btn btn-warning px-4" %></td>
         <td><%= link_to "Cancel", offer_path(offer), method: :delete, data: { confirm: "Cancel this request?" }, class: "btn btn-danger" %></td>
       </tr>
     <% end %>
@@ -28,16 +32,20 @@
   </table>
 
   <h2>Requests for your toys</h2>
-  <table class="table">
-    <tr>
-      <th>Toy</th>
-      <th>User</th>
-      <th>Start date</th>
-      <th>End date</th>
-      <th>Price</th>
-      <th>Location</th>
-      <th>Status</th>
-    </tr>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Toy</th>
+        <th>User</th>
+        <th>Start date</th>
+        <th>End date</th>
+        <th>Price</th>
+        <th>Location</th>
+        <th>Status</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
     <% @toy_requests.each do |offer| %>
       <tr>
           <td><%= offer.toy.name %></td>
@@ -48,9 +56,9 @@
           <td><%= offer.toy.location %></td>
           <td><%= offer.accepted ? "Accepted" : "Pending" %></td>
           <% if offer.accepted == false %>
-            <td><%= link_to "Accept", toy_offer_path(offer.toy, offer, accepted: true), method: :put, class: "btn btn-toyorange" %></td>
+            <td><%= link_to "Accept", toy_offer_path(offer.toy, offer, accepted: true), method: :put, class: "btn btn-warning" %></td>
           <% else %>
-            <td><%= link_to "Accept", "#", class: "btn btn-toyorange disabled" %></td>
+            <td><%= link_to "Accept", "#", class: "btn btn-warning disabled" %></td>
           <% end %>
           <td><%= link_to "Cancel", offer_path(offer), method: :delete, data: { confirm: "Cancel this request?" }, class: "btn btn-danger" %></td>
       </tr>
