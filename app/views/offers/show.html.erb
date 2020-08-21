@@ -1,7 +1,10 @@
+
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-md-8">
-      <h1>Your request</h1>
+      <h1 class="title">Confirmation of your request</h1>
+
+      <div class="offer-info">
       <div class="d-flex flex-column bd-highlight mb-3">
         <p> Start date: <%= @offer.start_date %></p>
         <p> End date: <%= @offer.end_date %></p>
@@ -9,10 +12,17 @@
         <p> <%= @num_of_days %> days </p>
         <p> Status: <%= @offer.accepted ? "Request accepted" : "Request pending" %></p>
         <p> Total price £<%= @num_of_days * @offer.toy.price %></p>
+          <%= link_to "Back to toys", toys_path, class: "btn btn-toyorange" %>
+          <% if @offer.toy.photo.attached? %>
+            <%= cl_image_tag @offer.toy.photo.key, height: 200, width: 200, crop: :fill, class: "img-thumbnail" %>
+            <% else %>
+            <img src="https://source.unsplash.com/qBrF1yu5Wys/300x300/" class="img-thumbnail" style="width: 200px; height: 200px; object-fit: cover;">
+            <% end %>
+        </div>
+      </div>
       </div>
     </div>
+
     </div>
-  <div class="text-center">
-    <%= link_to "Back to toys", toys_path, class: "btn btn-toyorange" %>
+    </div>
   </div>
-</div>
