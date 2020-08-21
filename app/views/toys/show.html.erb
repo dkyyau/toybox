@@ -10,7 +10,7 @@
           <% if @toy.photo.attached? %>
             <%= cl_image_tag @toy.photo.key, height: 200, width: 200, crop: :fill, class: "img-thumbnail" %>
           <% else %>
-            <img src="https://images.unsplash.com/photo-1558877385-81a1c7e67d72?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80" class="img-thumbnail" style="width: 200px; height: 200px; object-fit: cover;">
+            <img src="https://source.unsplash.com/qBrF1yu5Wys/300x300/" class="img-thumbnail" style="width: 200px; height: 200px; object-fit: cover;">
           <% end %>
           
         </div>

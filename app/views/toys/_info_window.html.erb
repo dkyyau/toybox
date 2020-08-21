@@ -1,7 +1,7 @@
 <%= link_to toy_path(toy) do %>
   <div class="card-toy-map">
     <% if toy.photo.attached? %>
-      <%= cl_image_tag toy.photo.key, height: 300, width: 400, crop: :fill %>
+      <%= cl_image_tag toy.photo.key, height: 300, width: 400, crop: :fill_pad, gravity: :auto %>
     <% else %>
     <img src="https://images.unsplash.com/photo-1558877385-81a1c7e67d72?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80" />
     <% end %>
