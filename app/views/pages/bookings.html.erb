@@ -24,7 +24,7 @@
         <td>£<%= number_with_precision(((offer.end_date - offer.start_date).to_i * offer.toy.price), precision: 2) %></td>
         <td><%= offer.toy.location %></td>
         <td><%= offer.accepted ? "Accepted" : "Pending" %></td>
-        <td><%= link_to "Edit", "#", class: "btn btn-warning px-4" %></td>
+        <td><%= link_to "Edit", edit_toy_offer_path(offer, offer.toy), class: "btn btn-warning px-4" %></td>
         <td><%= link_to "Cancel", offer_path(offer), method: :delete, data: { confirm: "Cancel this request?" }, class: "btn btn-danger" %></td>
       </tr>
     <% end %>

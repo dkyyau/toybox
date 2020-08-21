@@ -28,6 +28,11 @@ class ToysController < ApplicationController
   def show
     @toy = Toy.find(params[:id])
     @offer = Offer.new
+    @markers = [{ 
+      lat: @toy.latitude,
+      lng: @toy.longitude,
+      infoWindow: render_to_string(partial: "show_info_window", locals: { toy: @toy })
+    }]
   end
 
   def new
