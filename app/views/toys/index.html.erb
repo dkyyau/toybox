@@ -17,18 +17,17 @@
             <img src="https://source.unsplash.com/qBrF1yu5Wys/300x300/" />
           <% end %>
           <div class="card-toy-info">
-            <p class="card-toy-category"><%= toy.category.name %></p>
+            <p style= "background-color: <%= toy.category.colour %>;" class="card-toy-category"><%= toy.category.name %></p>
             <h2><%= toy.name %></h2>
             <p><%= toy.description %></p>
             <h3 class="card-toy-price">£<%= number_with_precision(toy.price, precision: 2) %> / day</h3>
           </div>
-        </div>
+        </div>S
       <% end %>
     <% end %>
   </div>
 
   <div id="map"
-     style="height: 100vh;"
      data-markers="<%= @markers.to_json %>"
      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
 </div>
