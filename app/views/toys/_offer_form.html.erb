@@ -1,12 +1,13 @@
-<h1>Request <%= toy.name %></h1>
-<%= simple_form_for([@toy, @offer]) do |f| %>
-  <div class="form-container">
-    <div class="text-left">
-      <%= f.input :start_date, as: :date, html5: true %>
-      <%= f.input :end_date, as: :date, html5: true %>
+<div class="offer-form border border-secondary shadow">
+  <%= simple_form_for([@toy, @offer]) do |f| %>
+    <div class="form-container">
+      <div class="text-left">
+        <%= f.input :start_date, as: :date, html5: true %>
+        <%= f.input :end_date, as: :date, html5: true %>
+      </div>
+      <div class="text-center">
+        <%= f.submit "Request this toy", class: 'btn btn-toyorange'%>
+      </div>
     </div>
-    <div class="text-center">
-      <%= f.submit "Request this toy", class: 'btn btn-toyorange'%>
-    </div>
-  </div>
-<% end %>
+  <% end %>
+</div>

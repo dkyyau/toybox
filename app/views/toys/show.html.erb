@@ -1,43 +1,48 @@
 <div class="container">
   <div class="row justify-content-center">
-    <div class="col-6">
-      <h1><%= @toy.name %></h1>
-      <div class="d-flex">
-        <div class="toy-img">
-          <div>
-            <p class="toy-category" style="background-color: <%= @toy.category.colour %>;"><%= @toy.category.name %></p>
+    <div class="col-8">
+      <div class="toy-info-box">
+        <h2 class="mb-2"><%= @toy.name %></h2>
+        <div class="d-flex">
+          <div class="toy-img">
+            <div>
+              <p class="toy-category" style="background-color: <%= @toy.category.colour %>;"><%= @toy.category.name %></p>
+            </div>
+            <% if @toy.photo.attached? %>
+              <%= cl_image_tag @toy.photo.key, height: 200, width: 200, crop: :fill, class: "shadow" %>
+            <% else %>
+              <img src="https://source.unsplash.com/qBrF1yu5Wys/300x300/" class="shadow" style="width: 200px; height: 200px; object-fit: cover;">
+            <% end %>
           </div>
-          <% if @toy.photo.attached? %>
-            <%= cl_image_tag @toy.photo.key, height: 200, width: 200, crop: :fill, class: "img-thumbnail" %>
-          <% else %>
-            <img src="https://source.unsplash.com/qBrF1yu5Wys/300x300/" class="img-thumbnail" style="width: 200px; height: 200px; object-fit: cover;">
-          <% end %>
-          
-        </div>
-        <div class="toy-info">
-          <h6>Name: <%= @toy.name %></h6>
-          <p>Description:</p>
-          <p> <%= @toy.description %></p>
-          <p>Price per day: £<%= number_with_precision(@toy.price, precision: 2) %></p>
-          <p>Pick-up location: <%= @toy.location %></p>
-        </div>
-      </div>
 
-      <div>
-        <% if @toy.user == current_user %>
-          <%= link_to "Edit", edit_toy_path(@toy), class: 'btn btn-outline-warning' %>
-        <% end %>
-        <%= link_to "Back to toys", toys_path, class: 'btn btn-outline-secondary my-3 mr-3' %>
+          <div class="toy-info">
+            <p><strong>Name:</strong> <%= @toy.name %></p>
+            <p class="mb-0"><strong>Description:</strong></p>
+            <p><%= @toy.description %></p>
+            <p><strong>Price per day:</strong> £<%= number_with_precision(@toy.price, precision: 2) %></p>
+            <p><strong>Pick-up location:</strong> <%= @toy.location %></p>
+          </div>
+        </div>
       </div>
+      
+        <div>
+          <% if @toy.user == current_user %>
+            <%= link_to "Edit", edit_toy_path(@toy), class: 'btn btn-outline-warning ml-4 mr-0' %>
+          <% end %>
+          <%= link_to "Back to toys", toys_path, class: 'btn btn-outline-secondary mx-4 my-3' %>
+        </div>
     </div>
 
-    <div class="col-4">
+    <div class="col-4 justify-content-center">
       <% if @toy.user == current_user %>
-        <h1>No booking form</h1>
+        <div id="map"
+          style="width: 300px; height: 60vh; border-radius: 4px; box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15); margin-top: 24px;"
+          data-markers="<%= @markers.to_json %>"
+          data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
       <% else %>
         <%= render "offer_form", toy: @toy %>
         <div id="map"
-          style="width: 300px; height: 300px;"
+          style="width: 80%; height: 30vh; border-radius: 4px; box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15); margin-top: 24px; margin-bottom: 24px;"
           data-markers="<%= @markers.to_json %>"
           data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
       <% end %>
