@@ -1,6 +1,11 @@
+.toy-info-box {
+  padding: 24px 0 16px 24px;
+}
+
 .toy-img {
   margin-top: 40px;
   position: relative;
+  border-radius: 4px;
 }
 
 .toy-category {
@@ -11,5 +16,12 @@
 }
 
 .toy-info {
-  padding: 8px;
+  padding: 32px 0 0 16px;
+}
+
+.offer-form {
+  padding: 16px;
+  margin-top: 16px;
+  border-radius: 4px;
+  width: 80%;
 }
