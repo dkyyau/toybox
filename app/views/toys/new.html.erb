@@ -1,6 +1,7 @@
 <div class="container">
   <div class="row justify-content-center">
-    <div class="col-md-8">
+    <div class="list-toy-container">
+      <div class="col">
       <h1>List your toy</h1>
       <%= simple_form_for(@toy) do |f| %>
         <%= f.input :name %>
@@ -12,6 +13,7 @@
         <%= f.button :submit, class: 'btn btn-toyorange my-3 mr-3' %>
         <%= link_to "Cancel", toys_path, class: "btn btn-outline-secondary my-3 mr-3" %>
       <% end %>
+       </div>
     </div>
   </div>
 </div>
