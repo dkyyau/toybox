@@ -14,3 +14,14 @@
 .toy-info {
   padding: 8px;
 }
+
+.btn:hover i{
+  animation: 1s turn;
+}
+
+@keyframes turn{
+ 50%{
+  transform: rotate(90deg);
+ }
+}
+
