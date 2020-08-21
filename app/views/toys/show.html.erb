@@ -28,8 +28,10 @@
         <div>
           <% if @toy.user == current_user %>
             <%= link_to "Edit", edit_toy_path(@toy), class: 'btn btn-outline-warning ml-4 mr-0' %>
+            <%= link_to "Back to toys", toys_path, class: 'btn btn-outline-secondary mx-2 my-3' %>
+          <% else %>
+            <%= link_to "Back to toys", toys_path, class: 'btn btn-outline-secondary mx-4 my-3' %>
           <% end %>
-          <%= link_to "Back to toys", toys_path, class: 'btn btn-outline-secondary mx-4 my-3' %>
         </div>
     </div>
 
